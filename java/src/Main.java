@@ -6,7 +6,7 @@ import udemy.basic.SingleLinkedList;
 
 import java.util.Arrays;
 
-public class Main {
+/*public class Main {
 
     public static void main(String[] args) {
         DoubleLinkedList dll = new DoubleLinkedList();
@@ -41,4 +41,4 @@ public class Main {
         sl3.head = merged;
         sl3.display();
     }
-}
+}*/
