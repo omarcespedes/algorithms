@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+class Main2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int tcNumber = sc.nextInt();
