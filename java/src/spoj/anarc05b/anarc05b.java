@@ -3,41 +3,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class Main44 {
+class Main {
     public static void main(String[] args) throws IOException {
-        try {
-            Scanner sc = new Scanner(System.in);
-//
-//        Integer[] l1test = new Integer[]{-1,2,5,11};
-//        Integer[] l2test = new Integer[]{-1,2,5,11,13};
-//
-//        System.out.println(compareLists(Arrays.asList(l1test), Arrays.asList(l2test)));
-        //TODO use next int instead of next line
-            while(true) {
-                String l1 = sc.nextLine();
-                if(l1.equals("0")) break;
-                String l2 = sc.nextLine();
 
-                List<Integer> list1 = new ArrayList<>();
-                List<Integer> list2 = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            int length = sc.nextInt();
+            if(length == 0) break;
 
-                String[] s = l1.split(" ");
-                int length = Integer.parseInt(s[0]);
-                for(int i = 1 ; i <= length ; i++ ) {
-                    list1.add(Integer.parseInt(s[i]));
-                }
+            List<Integer> list1 = new ArrayList<>();
+            List<Integer> list2 = new ArrayList<>();
 
-                s = l2.split(" ");
-                length = Integer.parseInt(s[0]);
-                for(int i = 1 ; i <= length ; i++ ) {
-                    list2.add(Integer.parseInt(s[i]));
-                }
-
-                System.out.println(compareLists(list1, list2));
+            for(int i = 0 ; i < length ; i++ ) {
+                list1.add(sc.nextInt());
             }
-        } catch (Exception e) {
-            return;
+
+            length = sc.nextInt();
+            for(int i = 0 ; i < length ; i++ ) {
+                list2.add(sc.nextInt());
+            }
+
+            System.out.println(compareLists(list1, list2));
         }
+
     }
 
     static long compareLists(List<Integer> l1, List<Integer> l2) {
