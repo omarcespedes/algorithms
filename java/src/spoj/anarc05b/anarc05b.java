@@ -54,18 +54,6 @@ class Main {
             }
         }
 
-        if(total1 > 0) {
-            if(total2 > 0) {
-                return total + (total1 > total2? total1 : total2);
-            } else {
-                return total + total1;
-            }
-        }
-
-        if(total2 > 0) {
-            return total + total2;
-        }
-
-        return total;
+        return total + (total1 > total2? total1 : total2);
     }
 }
