@@ -1,13 +1,11 @@
 import java.util.Scanner;
 
-class Main88 {
-    static int [] arr  = new int[]{3,2,1,2,2};
-    static int [] vals = new int[]{0,4,8,5,3};
+class Main {
+    static int [] arr;
+    static int [] vals;
+    static long[][] memo = new long[2000][2000];
     static int n;
-    public static void main(String[] args) {
-        n = 5;
-        findMax(4, 0);
-
+    public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
 
         int c = sc.nextInt();
@@ -25,16 +23,23 @@ class Main88 {
         System.out.println(max);
     }
 
-    static long findMax(int capacity, int i) {
+    static long findMax(int c, int i) {
+        long r;
         if(i == n ) return 0;
-        if(capacity == 0) return 0;
+        if(c == 0) return 0;
 
-        if(arr[i] <= capacity)
-            return Math.max(
-                    vals[i] + findMax(capacity - arr[i], i+1),
-                    findMax(capacity, i+1)
+        if(memo[i][c] != 0) {
+            return memo[i][c];
+        }
+
+        if(arr[i] <= c)
+            r = Math.max(
+                    vals[i] + findMax(c - arr[i], i+1),
+                    findMax(c, i+1)
             );
-
-        return findMax(capacity, i + 1);
+        else
+            r = findMax(c, i + 1);
+        memo[i][c] = r;
+        return r;
     }
 }
