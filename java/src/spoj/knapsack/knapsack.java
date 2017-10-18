@@ -26,25 +26,15 @@ class Main88 {
     }
 
     static long findMax(int capacity, int i) {
-        if(i >= n - 1) {
-            return 0;
-        }
-        int val = vals[i];
-        if(arr[i] > capacity){
-            if(capacity > 0){
-                return findMax(capacity, i + 1);
-            } else {
-                return 0;
-            }
-        }
+        if(i == n ) return 0;
+        if(capacity == 0) return 0;
 
-        if(capacity - arr[i] == 0) {
-            return val;
-        }
+        if(arr[i] <= capacity)
+            return Math.max(
+                    vals[i] + findMax(capacity - arr[i], i+1),
+                    findMax(capacity, i+1)
+            );
 
-        return Math.max(
-            val + findMax(capacity - arr[i], i+1),
-            findMax(capacity, i+1)
-        );
+        return findMax(capacity, i + 1);
     }
 }
